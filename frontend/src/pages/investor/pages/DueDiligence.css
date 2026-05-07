@@ -1,0 +1,385 @@
+.due-diligence-container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dd-header {
+  margin-bottom: 40px;
+}
+
+.dd-header h1 {
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.dd-header .subtitle {
+  font-size: 1rem;
+  color: #666;
+}
+
+.status-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #eee;
+  overflow-x: auto;
+}
+
+.status-tabs .tab {
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.status-tabs .tab:hover {
+  color: #2196F3;
+}
+
+.status-tabs .tab.active {
+  color: #2196F3;
+  border-bottom-color: #2196F3;
+}
+
+.loading,
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.empty-state .hint {
+  font-size: 0.9rem;
+  color: #bbb;
+  margin-top: 8px;
+}
+
+.records-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.record-item {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.record-item:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: #2196F3;
+}
+
+.record-header-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 16px;
+}
+
+.record-header-summary h3 {
+  font-size: 1.3rem;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.record-header-summary .company {
+  font-size: 0.85rem;
+  color: #999;
+  margin: 4px 0 0 0;
+}
+
+.record-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.recommendation-badge,
+.risk-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+.record-assessment-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.assessment-item {
+  padding: 12px;
+  background: #f5f5f5;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.assessment-item span {
+  display: block;
+  font-weight: 500;
+}
+
+.record-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.updated-at {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.btn-view-detail {
+  padding: 10px 20px;
+  background: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-view-detail:hover {
+  background: #1976d2;
+}
+
+/* Detail View Styles */
+.dd-detail-container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.btn-back {
+  padding: 10px 16px;
+  background: #f5f5f5;
+  color: #666;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 24px;
+}
+
+.btn-back:hover {
+  background: #eee;
+  color: #333;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  padding: 24px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+}
+
+.detail-header h1 {
+  font-size: 2rem;
+  margin: 0 0 8px 0;
+  color: #1a1a1a;
+}
+
+.detail-header .company {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+}
+
+.btn-edit-mode {
+  padding: 10px 20px;
+  background: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-edit-mode:hover {
+  background: #1976d2;
+}
+
+.btn-edit-mode.editing {
+  background: #FF9800;
+}
+
+.detail-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 24px;
+}
+
+.assessment-section {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.assessment-section h2 {
+  font-size: 1.3rem;
+  margin: 0 0 20px 0;
+  color: #1a1a1a;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #2196F3;
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.assessment-display {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rating {
+  font-weight: 600;
+  color: #FFB300;
+  font-size: 1.1rem;
+}
+
+.assessment-list {
+  margin: 0;
+}
+
+.assessment-list h4 {
+  margin: 0 0 8px 0;
+  color: #666;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.assessment-list ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.assessment-list li {
+  color: #666;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.notes {
+  padding: 12px;
+  background: #f0f0f0;
+  border-left: 3px solid #2196F3;
+  border-radius: 4px;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.btn-save-assessment {
+  padding: 12px 24px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.btn-save-assessment:hover {
+  background: #45a049;
+}
+
+@media (max-width: 768px) {
+  .detail-content {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .dd-detail-container {
+    padding: 20px;
+  }
+
+  .dd-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .detail-header h1 {
+    font-size: 1.5rem;
+  }
+}

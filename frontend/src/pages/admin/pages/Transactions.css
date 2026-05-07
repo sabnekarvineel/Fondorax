@@ -1,0 +1,126 @@
+.transactions-container {
+  width: 100%;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.user-table thead {
+  background: #0f172a;
+  border-bottom: 2px solid #334155;
+}
+
+.user-table th {
+  padding: 16px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #60a5fa;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.user-table tbody tr {
+  border-bottom: 1px solid #334155;
+  transition: background-color 0.2s ease;
+}
+
+.user-table tbody tr:hover {
+  background: #0f172a;
+}
+
+.user-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.user-table td {
+  padding: 14px 12px;
+  color: #e2e8f0;
+  font-size: 14px;
+}
+
+.user-table td:nth-child(1) {
+  font-weight: 500;
+}
+
+.user-table td:nth-child(2) {
+  text-transform: capitalize;
+}
+
+.user-table td:nth-child(3) {
+  font-weight: 500;
+  color: #10b981;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  text-align: center;
+  min-width: 80px;
+}
+
+.badge.active {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.badge.sold {
+  background: rgba(99, 102, 241, 0.2);
+  color: #6366f1;
+}
+
+.badge.closed {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+/* Loading state */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #60a5fa;
+  font-size: 16px;
+}
+
+/* Empty state */
+.card.mt-20 {
+  margin-top: 20px;
+  padding: 30px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.text-muted {
+  color: #94a3b8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .user-table {
+    font-size: 12px;
+  }
+
+  .user-table th,
+  .user-table td {
+    padding: 10px 6px;
+  }
+
+  .badge {
+    padding: 4px 8px;
+    font-size: 11px;
+    min-width: auto;
+  }
+}

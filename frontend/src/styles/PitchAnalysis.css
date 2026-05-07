@@ -1,0 +1,550 @@
+/* ===============================================
+   PITCH ANALYSIS - PREMIUM DESIGN SYSTEM
+   =============================================== */
+
+/* Container & Layout */
+.pitch-analysis-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header Section */
+.analysis-header {
+   max-width: 1200px;
+   margin: 0 auto 50px;
+   padding: 60px 40px;
+   background: #0F766E;
+   color: white;
+   border-radius: 16px;
+   box-shadow: 0 20px 60px rgba(15, 118, 110, 0.3);
+   text-align: center;
+}
+
+.header-content h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  letter-spacing: -0.5px;
+}
+
+.header-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Form Wrapper */
+.analysis-form-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.pitch-form-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .pitch-form-card {
+    padding: 30px 20px;
+  }
+}
+
+/* Company Name Section */
+.company-name-section {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.company-name-input {
+  width: 100%;
+  padding: 16px 18px;
+  font-size: 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.company-name-input:focus {
+   outline: none;
+   border-color: #0F766E;
+   box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.1);
+   background-color: #f8f9ff;
+}
+
+.company-name-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Tabs Section */
+.tabs-section {
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+}
+
+.tabs-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  padding: 12px 24px;
+  background: #f3f4f6;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: capitalize;
+  color: #6b7280;
+  position: relative;
+}
+
+.tab-button:hover {
+  background: #e5e7eb;
+  transform: translateY(-2px);
+}
+
+.tab-button.active {
+   background: #0F766E;
+   color: white;
+   border-color: transparent;
+   box-shadow: 0 4px 15px rgba(15, 118, 110, 0.3);
+}
+
+.tab-label {
+  display: block;
+  letter-spacing: 0.3px;
+}
+
+.tabs-indicator {
+   height: 2px;
+   background: #0F766E;
+   border-radius: 1px;
+   margin-top: 8px;
+}
+
+/* Form Content */
+.form-content {
+  margin-bottom: 40px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form Sections */
+.form-section {
+  padding: 0;
+}
+
+.form-section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 30px 0;
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 10px;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+}
+
+.form-input,
+select {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background: #fafbfc;
+  color: #1f2937;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.form-input:focus,
+select:focus {
+   outline: none;
+   border-color: #0F766E;
+   background: white;
+   box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.1);
+}
+
+select {
+  cursor: pointer;
+  appearance: none;
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+  padding-right: 40px;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+  margin-bottom: 20px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background: #f9fafb;
+  border: 2px solid transparent;
+  font-weight: 500;
+  font-size: 15px;
+  color: #374151;
+  gap: 12px;
+}
+
+.checkbox-label:hover {
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+}
+
+.checkbox-input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+  accent-color: #667eea;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.checkbox-input:checked {
+  accent-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.checkbox-label:hover .checkbox-input {
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.checkbox-label span {
+  letter-spacing: 0.2px;
+  user-select: none;
+}
+
+/* Submit Button */
+.submit-button {
+   width: 100%;
+   padding: 16px 24px;
+   background: #0F766E;
+   color: white;
+   font-size: 16px;
+   font-weight: 700;
+   border: none;
+   border-radius: 12px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 12px;
+   letter-spacing: 0.3px;
+   box-shadow: 0 4px 15px rgba(15, 118, 110, 0.3);
+   margin-top: 20px;
+}
+
+.submit-button:hover:not(:disabled) {
+   transform: translateY(-3px);
+   box-shadow: 0 8px 25px rgba(15, 118, 110, 0.4);
+}
+
+.submit-button:active:not(:disabled) {
+   transform: translateY(-1px);
+   box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background: linear-gradient(135deg, #9ca3af 0%, #74788c 100%);
+}
+
+.rocket-icon,
+.spinner {
+  display: inline-block;
+  font-size: 18px;
+  animation: none;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .analysis-header {
+    padding: 40px 25px;
+    margin-bottom: 30px;
+  }
+
+  .header-content h1 {
+    font-size: 2rem;
+  }
+
+  .header-subtitle {
+    font-size: 1rem;
+  }
+
+  .pitch-form-card {
+    padding: 25px 18px;
+  }
+
+  .tabs-container {
+    gap: 8px;
+  }
+
+  .tab-button {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+
+  .form-section-title {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-label {
+    font-size: 13px;
+  }
+
+  .form-input,
+  select {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .submit-button {
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+
+  .company-name-section {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pitch-analysis-container {
+    padding: 20px 12px;
+  }
+
+  .analysis-header {
+    padding: 30px 18px;
+    margin-bottom: 20px;
+  }
+
+  .header-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .pitch-form-card {
+    padding: 18px 14px;
+    margin-bottom: 30px;
+  }
+
+  .form-section-title {
+    font-size: 1.1rem;
+  }
+
+  .submit-button {
+    padding: 12px 16px;
+    font-size: 14px;
+    flex-wrap: wrap;
+  }
+}
+
+/* Animation for form appearance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pitch-form-card {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Utility Classes */
+.text-muted {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* ===============================================
+   ANALYSIS REPORT STYLING
+   =============================================== */
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+  margin: 0 0 20px 0;
+  color: #1f2937;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.btn-primary {
+   padding: 12px 24px;
+   background: #0F766E;
+   color: white;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+   font-weight: 600;
+   font-size: 14px;
+   transition: all 0.3s ease;
+   box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
+}
+
+.btn-primary:hover {
+   transform: translateY(-2px);
+   box-shadow: 0 8px 20px rgba(15, 118, 110, 0.4);
+}
+
+.btn-outline {
+   padding: 12px 24px;
+   background: white;
+   color: #0F766E;
+   border: 2px solid #0F766E;
+   border-radius: 10px;
+   cursor: pointer;
+   font-weight: 600;
+   font-size: 14px;
+   transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+   background: #f0f7f6;
+   transform: translateY(-2px);
+}
+
+.btn-large {
+  padding: 16px 24px;
+  font-size: 16px;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+   max-width: 1200px;
+   margin: 0 auto 40px;
+   padding: 50px 30px;
+   background: #0F766E;
+   color: white;
+   border-radius: 16px;
+   box-shadow: 0 20px 60px rgba(15, 118, 110, 0.3);
+   text-align: center;
+}
+
+.dashboard-header h2 {
+  margin: 0 0 10px 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.dashboard-header p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.95;
+  font-weight: 400;
+}

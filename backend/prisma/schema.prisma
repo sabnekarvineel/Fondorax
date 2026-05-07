@@ -1,0 +1,231 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Startup Information
+model Startup {
+  id        Int     @id @default(autoincrement())
+  name      String  @unique
+  industry  String
+  stage     String  // Seed, Series A, Series B, etc.
+  website   String?
+  founderId String  @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  pitchAnalyses PitchAnalysis[]
+  financials    FinancialMetrics[]
+  documents     Document[]
+
+  @@index([founderId])
+}
+
+// Pitch Analysis Results
+model PitchAnalysis {
+  id              Int     @id @default(autoincrement())
+  startupId       Int
+  startup         Startup @relation(fields: [startupId], references: [id], onDelete: Cascade)
+  
+  // AI-Generated Summary & Insights
+  aiSummary       String  @db.Text
+  problemStatement String  @db.Text
+  marketSize      String
+  revenueModel    String  @db.Text
+  
+  // AI Extracted Data
+  aiExtraction    Json    // Raw AI extraction response
+  
+  // Identified Risks & Strengths
+  risks           String[] // Array of risks
+  strengths       String[] // Array of strengths
+  
+  // Scores (0-100)
+  founderScore    Float
+  marketScore     Float
+  tractionScore   Float
+  financeScore    Float
+  riskScore       Float
+  totalScore      Float
+  
+  // Risk Assessment
+  riskLevel       String  // Low, Medium, High, Critical
+  riskDetails     String? @db.Text
+  
+  // Flags
+  redFlags        String[]
+  greenFlags      String[]
+  
+  // Metadata
+  analyzedAt      DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  createdAt       DateTime @default(now())
+
+  @@index([startupId])
+  @@index([totalScore])
+  @@index([riskLevel])
+}
+
+// Financial Metrics
+model FinancialMetrics {
+  id              Int     @id @default(autoincrement())
+  startupId       Int
+  startup         Startup @relation(fields: [startupId], references: [id], onDelete: Cascade)
+  
+  // Revenue & Growth
+  annualRevenue   Float?
+  monthlyRevenue  Float?
+  growthRate      Float?  // Percentage
+  
+  // Burn & Runway
+  monthlyBurn     Float?
+  runwayMonths    Float?  // Months of runway
+  
+  // Unit Economics
+  cac             Float?  // Customer Acquisition Cost
+  ltv             Float?  // Lifetime Value
+  churnRate       Float?  // Percentage
+  
+  // Team & Traction
+  employeeCount   Int?
+  activeUsers     Int?
+  
+  // Extracted from pitch or manually entered
+  source          String  // "ai_extracted" or "manual_input"
+  period          String  // Quarterly or yearly identifier
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([startupId])
+}
+
+// Uploaded Documents
+model Document {
+  id              Int     @id @default(autoincrement())
+  startupId       Int
+  startup         Startup @relation(fields: [startupId], references: [id], onDelete: Cascade)
+  
+  filename        String
+  originalName    String
+  mimeType        String
+  fileSize        Int
+  
+  // Storage
+  storageUrl      String  // S3 or local path
+  extractedText   String? @db.Text  // Full text extracted from PDF
+  
+  // Processing
+  processed       Boolean @default(false)
+  processedAt     DateTime?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([startupId])
+  @@index([processed])
+}
+
+// Analysis History for tracking improvements
+model AnalysisHistory {
+  id              Int     @id @default(autoincrement())
+  analysisId      Int
+  
+  // Store previous scores for comparison
+  previousScore   Float?
+  newScore        Float?
+  changeReason    String? @db.Text
+  
+  createdAt       DateTime @default(now())
+
+  @@index([analysisId])
+}
+
+// Resources for Funding/Grants
+model Resource {
+  id              Int     @id @default(autoincrement())
+  title           String
+  type            String  // "government", "private", "accelerator", "loan"
+  organization    String
+  description     String  @db.Text
+  fundingAmount   String  // e.g., "₹20 Lakhs - ₹50 Lakhs"
+  stage           String[] // "Idea", "MVP", "Early Revenue", "Growth"
+  sector          String[] // Tech, EdTech, AgriTech, etc.
+  eligibility     String  @db.Text
+  requirements    String[] // Specific requirements
+  location        String[] // India, Telangana, Karnataka, etc.
+  deadline        DateTime?
+  link            String
+  applicationUrl  String?
+  contactEmail    String?
+  
+  // Featured listing
+  isFeatured      Boolean @default(false)
+  featuredUntil   DateTime?
+  
+  // Resource status
+  isActive        Boolean @default(true)
+  verifiedAt      DateTime?
+  
+  // Metadata
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  createdBy       String?
+
+  // Relations
+  applications    ResourceApplication[]
+  bookmarks       ResourceBookmark[]
+
+  @@index([type])
+  @@index([isActive])
+  @@index([isFeatured])
+  @@index([deadline])
+}
+
+// User's resource applications
+model ResourceApplication {
+  id              Int     @id @default(autoincrement())
+  resourceId      Int
+  resource        Resource @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+  
+  userId          String
+  userEmail       String
+  applicationUrl  String?
+  
+  // Application tracking
+  status          String  @default("pending") // "pending", "submitted", "approved", "rejected"
+  appliedAt       DateTime @default(now())
+  result          String?  // Result description
+  resultDate      DateTime?
+  
+  notes           String? @db.Text
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([resourceId])
+  @@index([userId])
+  @@index([status])
+}
+
+// User's bookmarked resources
+model ResourceBookmark {
+  id              Int     @id @default(autoincrement())
+  resourceId      Int
+  resource        Resource @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+  
+  userId          String
+  
+  createdAt       DateTime @default(now())
+
+  @@unique([resourceId, userId])
+  @@index([userId])
+}
