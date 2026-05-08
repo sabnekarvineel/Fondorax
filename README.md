@@ -148,11 +148,6 @@ The application is fully responsive and mobile-optimized:
 
 ## Theming
 
-The application supports light and dark modes:
-
-- Click the theme toggle button (☀️/🌙) in the navbar
-- Theme preference is client-side (not persisted)
-- All components have dark mode support
 
 ## Database Models
 
